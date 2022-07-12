@@ -22,6 +22,7 @@ app.use(express.json())
 
 app.get("/", async (req, res) => {
     const blogs = await Blog.find({})
+    console.log('BLOGS - ', blogs)
     res.render('index', {
         blogs
     })
@@ -31,6 +32,14 @@ app.get("/about", (req, res) => {
 })
 app.get("/add_blog", (req, res) => {
     res.render('add_blog')
+})
+
+app.get("/blogs/:id", async (req, res) => {
+    const blog = await Blog.findById(req.params.id)
+    console.log(req.params.id)
+    res.render('post', {
+        blog
+    })
 })
 
 app.post('/addBlog', async (req, res) => {
