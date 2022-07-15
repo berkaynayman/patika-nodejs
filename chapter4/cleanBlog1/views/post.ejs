@@ -27,8 +27,12 @@
   <article>
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="col-lg-9 col-md-9">
             <%= blog.detail %>
+        </div>
+        <div class="col-lg-3 col-md-3 d-flex justify-content-between">
+          <a href="/blogs/edit/<%= blog._id %>" class="btn btn-primary">Update</a>
+          <a href="/blogs/<%= blog._id %>?_method=DELETE" class="btn btn-danger">Delete</a>
         </div>
       </div>
     </div>
